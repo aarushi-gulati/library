@@ -13,9 +13,6 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.info = function () {
-    return `${title} by ${author}, ${pages} pages`;
-  };
 }
 
 function addBookToLibrary() {
@@ -37,7 +34,7 @@ function showBooks() {
     let txt = "";
     for (let x in myLibrary[i]) {
       txt = "";
-      if (x != "info" && x != "read") {
+      if (x != "read") {
         txt += `${x} : ${myLibrary[i][x]}`;
       }
       card.appendChild(document.createTextNode(txt));
@@ -49,6 +46,7 @@ function showBooks() {
     remove.innerHTML = "Remove";
 
     let haveRead = document.createElement("button");
+    haveRead.id = myLibrary[i][title];
     if (myLibrary[i]["read"]){
       haveRead.innerHTML = "Read";
       haveRead.classList.add("read")
@@ -62,35 +60,23 @@ function showBooks() {
     card.appendChild(remove)
     result.appendChild(card);
   }
-  let removeButtons = document.querySelectorAll(".remove");
-
-  removeButtons.forEach((currButton) => {
-    currButton.addEventListener('click', () => {
-    let position = currButton.id;
-    myLibrary.splice (position, 1);
-    showBooks();
-    })
-  })
-
-  let readButtons = document.querySelectorAll(".read");
-
-  readButtons.forEach((readbutton) => {
-    readbutton.addEventListener('click', () => {
-      readbutton.classList.remove("read");
-      readbutton.classList.add("unread");
-      readbutton.innerHTML = "Unread";
-      showBooks();
-    })
-  })
-
-  let unreadButtons = document.querySelectorAll(".unread");
-
-  unreadButtons.forEach((unreadbutton) => {
-    unreadbutton.addEventListener('click', () => {
-      unreadbutton.classList.remove("unread");
-      unreadbutton.classList.add("read");
-      unreadbutton.innerHTML = "Read";
-      showBooks();
-    })
-  });
 }
+
+let whole = document.querySelector("body");
+
+whole.addEventListener('click', (e) => {
+  if (e.target.classList.contains("read") || e.target.classList.contains("unread")){
+    let arrayLength = myLibrary.length;
+    for (var i = 0; i < arrayLength; i++){
+      if (e.target.id = myLibrary[i]["title"]){
+        if (myLibrary[i]["read"] === true){
+          myLibrary[i]["read"] = false;
+        } 
+        else{
+          myLibrary[i]["read"] = true;
+        }
+      }
+    }
+    showBooks();
+  }
+})
