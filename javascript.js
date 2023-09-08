@@ -60,6 +60,16 @@ function showBooks() {
     card.appendChild(remove)
     result.appendChild(card);
   }
+
+  let removeButtons = document.querySelectorAll(".remove");
+
+  removeButtons.forEach((currButton) => {
+    currButton.addEventListener('click', () => {
+    let position = currButton.id;
+    myLibrary.splice (position, 1);
+    showBooks();
+    })
+  })
 }
 
 let whole = document.querySelector("body");
