@@ -9,18 +9,18 @@ let submitButton = document.querySelector(".submitButton");
 submitButton.addEventListener('click', addBookToLibrary);
 
 function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
+  this.Title = title;
+  this.Author = author;
+  this.Pages = pages;
   this.read = read;
 }
 
 function addBookToLibrary() {
-  let title = document.getElementById("title").value;
-  let author = document.getElementById("author").value;
-  let pages = document.getElementById("pages").value;
+  let Title = document.getElementById("title").value;
+  let Author = document.getElementById("author").value;
+  let Pages = document.getElementById("pages").value;
   let read = document.getElementById("read").checked;
-  let temp = new Book(title, author, pages, read);
+  let temp = new Book(Title, Author, Pages, read);
   myLibrary.push(temp);
 }
 

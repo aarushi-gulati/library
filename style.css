@@ -1,7 +1,19 @@
+body{
+  position: relative;
+  background-image: url(465201-library-Photoshop-magic-book-store-books.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 400px;
 }
 
 input {
@@ -21,6 +33,7 @@ output {
 }
 
 .result{
+  margin-top: 325px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -29,9 +42,14 @@ output {
 .card-class{
   margin: 50px;
   padding: 100px;
-  border-style: solid;
-  border-color: black;
-  background-color: beige;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.2px);
+  -webkit-backdrop-filter: blur(6.2px);
+  border: 1px solid rgba(255, 255, 255, 1);
+
 }
 
 .dabba{
@@ -44,4 +62,19 @@ output {
 
 .unread {
   background-color: red;
+}
+
+.submission{
+  position: absolute;
+  top: 50px;
+  right: 38vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.21);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5.5px);
+-webkit-backdrop-filter: blur(5.5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
 }
